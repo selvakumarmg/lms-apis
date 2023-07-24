@@ -15,9 +15,20 @@ exports.updateAgentStatus = async (req, res) => {
 
   try {
     await Agent.updateAgentStatus(agentId, newStatus);
-    res.json({ message: 'Agent status updated successfully' });
+    res.json({ message: 'Agent status updated successfully'});
   } catch (err) {
     res.status(500).json({ error: 'Internal server error' });
   }
 };
+
+exports.getAgent = async (req, res) => {
+  const { agentId } = req.body;
+  try {
+    const agents = await Agent.getAgent(agentId);
+    res.json(agents);
+  } catch (err) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
 
