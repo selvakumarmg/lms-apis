@@ -4,7 +4,9 @@ const Agent = require('../models/Agent');
 exports.getAllAgents = async (req, res) => {
   try {
     const agents = await Agent.getAllAgents();
-    res.json(agents);
+    // res.json(agents);
+    res.json([1,2,35,]);
+
   } catch (err) {
     res.status(500).json({ error: 'Internal server error' });
   }
