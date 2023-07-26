@@ -22,6 +22,9 @@ app.use('/api/auth', register);
 const agentRoutes = require('./routes/agentRoutes');
 app.use('/api', agentRoutes);
 
+const leadRoutes = require('./routes/leadRoutes');
+app.use('/api', leadRoutes);
+
 // Serve Swagger UI at /api-docs
 app.use('/', swaggerUi.serve, swaggerUi.setup(specs));
 

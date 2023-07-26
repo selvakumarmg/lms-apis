@@ -4,6 +4,10 @@
   "main": "index.js",
   "author": "Selvakumar Gandhi",
   "license": "MIT",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "npx nodemon"
+  },
   "dependencies": {
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
