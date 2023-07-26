@@ -26,7 +26,10 @@ const leadRoutes = require('./routes/leadRoutes');
 app.use('/api', leadRoutes);
 
 // Serve Swagger UI at /api-docs
-app.use('/', swaggerUi.serve, swaggerUi.setup(specs));
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(specs));
+app.use('/docs', (req,res)=>{
+    res.send("server running ")
+});
 
 // Start the server
 const PORT = process.env.PORT || 4000;
