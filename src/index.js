@@ -25,6 +25,9 @@ app.use('/api', agentRoutes);
 const leadRoutes = require('./routes/leadRoutes');
 app.use('/api', leadRoutes);
 
+const otpRoutes = require('./routes/otpRoutes');
+app.use('/api/auth', otpRoutes);
+
 // Serve Swagger UI at /api-docs
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(specs));
 app.use('/docs', (req,res)=>{
@@ -32,5 +35,5 @@ app.use('/docs', (req,res)=>{
 });
 
 // Start the server
-const PORT = process.env.PORT || 4000;
+const PORT = 4000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

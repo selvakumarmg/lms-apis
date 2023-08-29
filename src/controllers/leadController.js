@@ -4,7 +4,7 @@ exports.createLead = async (req, res) => {
   try {
     const result = await Lead.create(req.body);
     const newLeadId = result[0].insertId;
-    res.status(201).json({ id: newLeadId, message: 'Lead created successfully' });
+    res.status(201).json({ status:201, id: newLeadId, message: 'Lead created successfully' });
   } catch (error) {
     console.error('Error creating lead:', error);
     res.status(500).json({ error: 'Failed to create lead' });
@@ -18,7 +18,7 @@ exports.getAllLeadsByAgentId = async (req, res) => {
       if (rows.length === 0) {
         return res.status(404).json({ error: 'No leads found for the specified agentId' });
       }
-      res.json(rows);
+      res.json({status:200,data:rows});
     } catch (error) {
       console.error('Error fetching leads:', error);
       res.status(500).json({ error: 'Failed to fetch leads' });
